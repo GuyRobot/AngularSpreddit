@@ -1,7 +1,10 @@
+import { SigninResponsePayload } from './../signin/signin.response.payload';
 import { SignupPayload } from './../signup/signup.payload';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
+import { SigninPayload } from '../signin/signin.payload';
+import { LocalStorageService } from 'ngx-webstorage';
 
 @Injectable({
   providedIn: 'root',
@@ -9,11 +12,31 @@ import { Observable } from 'rxjs';
 export class AuthService {
   apiUrl: string = 'http://localhost:8080/api/auth';
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(
+    private httpClient: HttpClient,
+    private localStorage: LocalStorageService
+  ) {}
 
   signup(payload: SignupPayload): Observable<any> {
     return this.httpClient.post(`${this.apiUrl}/signup`, payload, {
       responseType: 'text',
     });
+  }
+
+  signin(payload: SigninPayload): Observable<boolean> {
+    return this.httpClient
+      .post<SigninResponsePayload>(`${this.apiUrl}/signin`, payload)
+      .pipe(
+        map((res) => {
+          this.localStorage.store(
+            'authenticationToken',
+            res.authenticationToken
+          );
+          this.localStorage.store('refreshToken', res.refreshToken);
+          this.localStorage.store('expiresAt', res.expiresAt);
+          this.localStorage.store('username', res.username);
+          return true;
+        })
+      );
   }
 }
