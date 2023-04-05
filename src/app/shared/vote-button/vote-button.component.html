@@ -1,0 +1,13 @@
+<div class="col-md-1">
+    <div class="d-flex flex-column votebox">
+    <div class="p-2">
+        <span (click)="upvotePost()" class="upvote" classs="faArrowUp" [style.color]="post.upVote ? 'green':''">
+        </span>
+    </div>
+    <div class="p-2 votecount">{{post.voteCount}}</div>
+    <div class="p-2">
+        <span (click)="downvotePost()" class="downvote" class="faArrowDown" [style.color]="post.downVote ? 'red':''">
+        </span>
+    </div>
+    </div>
+</div>

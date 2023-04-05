@@ -1,6 +1,6 @@
 import { SigninResponsePayload } from './../signin/signin.response.payload';
 import { SignupPayload } from './../signup/signup.payload';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map, tap } from 'rxjs';
 import { SigninPayload } from '../signin/signin.payload';
@@ -11,6 +11,8 @@ import { LocalStorageService } from 'ngx-webstorage';
 })
 export class AuthService {
   apiUrl: string = 'http://localhost:8080/api/auth';
+
+  @Output() loggedIn: EventEmitter<boolean> = new EventEmitter();
 
   constructor(
     private httpClient: HttpClient,
