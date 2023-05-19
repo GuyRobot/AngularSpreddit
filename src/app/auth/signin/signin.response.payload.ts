@@ -1,6 +1,6 @@
 export interface SigninResponsePayload {
   authenticationToken: string;
   refreshToken: string;
-  expiresAt: Date;
+  expireAt: Date;
   username: string;
 }

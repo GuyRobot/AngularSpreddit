@@ -35,7 +35,7 @@ export class AuthService {
             res.authenticationToken
           );
           this.localStorage.store('refreshToken', res.refreshToken);
-          this.localStorage.store('expiresAt', res.expiresAt);
+          this.localStorage.store('expireAt', res.expireAt);
           this.localStorage.store('username', res.username);
           return true;
         })
@@ -67,7 +67,7 @@ export class AuthService {
             'authenticationToken',
             response['authenticationToken']
           );
-          this.localStorage.store('expiresAt', response['expiresAt']);
+          this.localStorage.store('expiresAt', response['expireAt']);
         })
       );
   }
