@@ -37,7 +37,7 @@ import { EditorModule } from '@tinymce/tinymce-angular';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgxWebstorageModule,
+    NgxWebstorageModule.forRoot(),
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     EditorModule
