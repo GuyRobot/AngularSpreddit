@@ -19,6 +19,9 @@ import { CreateSubredditComponent } from './subreddit/create-subreddit/create-su
 import { CreatePostComponent } from './post/create-post/create-post.component';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { TokenInterceptor } from './token-interceptor';
+import { ListSubredditsComponent } from './subreddit/list-subreddits/list-subreddits.component';
+import { HomeComponent } from './home/home.component';
+import { PostTileComponent } from './shared/post-tile/post-tile.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +35,9 @@ import { TokenInterceptor } from './token-interceptor';
     SubredditSideBarComponent,
     CreateSubredditComponent,
     CreatePostComponent,
+    ListSubredditsComponent,
+    HomeComponent,
+    PostTileComponent,
   ],
   imports: [
     BrowserModule,

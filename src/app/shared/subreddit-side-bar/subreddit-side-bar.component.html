@@ -1,11 +1,9 @@
-<div class="sidebar-view-subreddit">
-    <div style="color: black; font-weight: bold">Browse Subreddits</div>
-    <hr />
+<div class="border overflow-hidden relative rounded-sm p-4 my-8">
+    <div class="font-bold text-gray-800 mb-4">Browse Subreddits</div>
     <span *ngFor="let subreddit of subreddits">
-        <span class="subreddit-text"><a href="/view-subreddit/{{subreddit.id}}">{{subreddit.name}}</a></span>
-        <hr />
+        <span class="subreddit-text pb-6 border-b text-indigo-600 font-bold text-sm"><a href="/view-subreddit/{{subreddit.id}}">{{subreddit.name}}</a></span>
     </span>
-    <div style="text-align: center" *ngIf="displayViewAll">
-        <a style="font-weight: bold" routerLink="/list-subreddits">View All</a>
+    <div class="text-center" *ngIf="displayViewAll">
+        <a class="font-bold" routerLink="/list-subreddits">View All</a>
     </div>
 </div>
