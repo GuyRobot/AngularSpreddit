@@ -9,7 +9,7 @@ import { CreatePostPayload } from '../post/create-post/create-post.payload';
 })
 export class PostService {
   createPost(postPayload: CreatePostPayload) {
-    return this.http.post('http://localhost:8000/api/posts', postPayload)
+    return this.http.post('http://localhost:8080/api/posts', postPayload)
   }
   constructor(private http: HttpClient) {}
 
